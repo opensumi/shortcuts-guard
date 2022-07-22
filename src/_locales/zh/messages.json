@@ -1,0 +1,58 @@
+{
+  "add": {
+    "message": "添加",
+    "description": ""
+  },
+  "addFailEmpty": {
+    "message": "在添加前请先输入URL",
+    "description": ""
+  },
+  "addFailExist": {
+    "message": "URL已经存在",
+    "description": ""
+  },
+  "appDesc": {
+    "message": "守护在浏览器端的 OpenSumi IDE 快捷键。",
+    "description": ""
+  },
+  "cancel": {
+    "message": "取消",
+    "description": ""
+  },
+  "delete": {
+    "message": "删除",
+    "description": ""
+  },
+  "goShortcut": {
+    "message": "前往快捷键设置页面",
+    "description": ""
+  },
+  "ok": {
+    "message": "确认",
+    "description": ""
+  },
+  "successfullyAdd": {
+    "message": "添加成功",
+    "description": ""
+  },
+  "successfullyDelete": {
+    "message": "删除成功",
+    "description": ""
+  },
+  "successfullyUpdate": {
+    "message": "更新成功",
+    "description": ""
+  },
+  "supportRegular": {
+    "message": "支持正则表达式添加URL",
+    "description": ""
+  },
+  "updateFailEmpty": {
+    "message": "URL不能为空",
+    "description": ""
+  },
+  "updateFailExist": {
+    "message": "URL已经存在",
+    "description": ""
+  }
+}

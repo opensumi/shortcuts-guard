@@ -1,0 +1,58 @@
+{
+  "add": {
+    "message": "Add",
+    "description": ""
+  },
+  "addFailEmpty": {
+    "message": "Please input a URL before adding",
+    "description": ""
+  },
+  "addFailExist": {
+    "message": "The URL has existed",
+    "description": ""
+  },
+  "appDesc": {
+    "message": "Guard the OpenSumi IDE shortcuts in the browsers.",
+    "description": ""
+  },
+  "cancel": {
+    "message": "Cancel",
+    "description": ""
+  },
+  "delete": {
+    "message": "Delete",
+    "description": ""
+  },
+  "goShortcut": {
+    "message": "Go to the shortcut settings page",
+    "description": ""
+  },
+  "ok": {
+    "message": "OK",
+    "description": ""
+  },
+  "successfullyAdd": {
+    "message": "Successfully added",
+    "description": ""
+  },
+  "successfullyDelete": {
+    "message": "Successfully deleted",
+    "description": ""
+  },
+  "successfullyUpdate": {
+    "message": "Successfully updated",
+    "description": ""
+  },
+  "supportRegular": {
+    "message": "Support regular expressions to add a URL",
+    "description": ""
+  },
+  "updateFailEmpty": {
+    "message": "The URL cannot be empty",
+    "description": ""
+  },
+  "updateFailExist": {
+    "message": "The URL has existed",
+    "description": ""
+  }
+}

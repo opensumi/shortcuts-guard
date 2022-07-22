@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "strict": true,
+    "target": "es6",
+    "sourceMap": false,
+    "jsx": "react",
+    "rootDir": "src",
+    "outDir": "dist/js",
+    "baseUrl": "./src/",
+    "paths": {
+      "@/styles/*": ["styles/*"],
+      "@/components/*": ["components/*"],
+      "@/types/*": ["types/*"],
+      "@/scripts/*": ["scripts/*"],
+      "@/utils/*": ["utils/*"],
+    }
+  }
+}
