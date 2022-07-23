@@ -1,0 +1,45 @@
+{
+  "name": "Shortcuts Guard",
+  "description": "__MSG_appDesc__",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "default_locale": "en",
+  "action": {
+    "default_popup": "pages/popup.html"
+  },
+  "icons": {
+    "16": "images/icons/icon16.png",
+    "32": "images/icons/icon32.png",
+    "48": "images/icons/icon48.png",
+    "128": "images/icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "commands": {
+    "closeCurrentTab": {
+      "description": "Ctrl / Command + W"
+    },
+    "closeCurrentWindow": {
+      "description": "Ctrl / Command + Shift + W"
+    },
+    "openNewTab": {
+      "description": "Ctrl / Command + T"
+    },
+    "openNewWindow": {
+      "description": "Ctrl / Command + N"
+    },
+    "reopenPreviouslyClosedTab": {
+      "description": "Ctrl / Command + Shift + T"
+    }
+  },
+  "permissions": [
+    "scripting",
+    "sessions",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}

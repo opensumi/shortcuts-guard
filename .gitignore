@@ -1,0 +1,8 @@
+dist
+dist.crx
+dist.pem
+
+node_modules
+
+yarn.lock
+package-lock.json

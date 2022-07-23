@@ -1,0 +1,62 @@
+@import '~@opensumi/ide-components/lib/icon/iconfont/iconfont.css';
+@import '/src/styles/variables.less';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left-wrapper {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      cursor: pointer;
+      width: 35px;
+      height: 35px;
+    }
+
+    .sumi-name {
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .vertical-divider {
+      background-color: var(--kt-modal-separatorBackground);
+      width: 1px;
+      height: 20px;
+      margin: 15px;
+    }
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+}
+
+.add-url-section {
+  display: flex;
+  justify-content: space-between;
+
+  .input {
+    width: 400px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .button {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.url-list {
+  margin-top: 10px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+}
