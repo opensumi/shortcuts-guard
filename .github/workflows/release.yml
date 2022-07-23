@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'src/**'
+    tags:
+      - "v*.*.*"
+  pull_request:
+    paths:
+      - 'src/**'
+    tags:
+      - "v*.*.*"
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install Dependencies
+      run: |
+        yarn install
+
+    - name: Build
+      run: |
+        yarn build
+  
+    - name: Zip
+      uses: vimtor/action-zip@v1
+      with:
+        files: dist/
+        dest: shortcuts-guard.zip
+
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          shortcuts-guard.zip
