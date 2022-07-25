@@ -24,8 +24,8 @@ const Popup = () => {
     updateUrlsInChromeStorage(newUrls);
   };
 
-  const handleClickGoToOfficialWebsite = () => {
-    chrome.tabs.create({ url: 'https://opensumi.com/' });
+  const handleClickGoToRepo = () => {
+    chrome.tabs.create({ url: 'https://github.com/opensumi/shortcuts-guard' });
   };
 
   const handlePressAddUrlEnter = (
@@ -175,14 +175,14 @@ const Popup = () => {
           <img
             src="../images/logo.svg"
             className={styles.logo}
-            onClick={handleClickGoToOfficialWebsite}
+            onClick={handleClickGoToRepo}
           />
           <div className={styles['vertical-divider']} />
           <span
             className={styles['sumi-name']}
-            onClick={handleClickGoToOfficialWebsite}
+            onClick={handleClickGoToRepo}
           >
-            OpenSumi
+            OpenSumi Guard
           </span>
         </div>
         <Tooltip title={chrome.i18n.getMessage('goShortcut')} delay={600}>
