@@ -4,13 +4,13 @@
 
 English | [简体中文](./README-zh_CN.md)
 
-A Chrome Extension for guarding the OpenSumi IDE shortcuts in the browsers.
+The shortcuts of the OpenSumi IDE conflict with those of the Chrome, which makes the corresponding actions of OpenSumi IDE unable to take effect. Shortcuts Guard solve the most common used shortcuts conflict.
 
 ## Usage
 
 - Click the Chrome Extension icon, and then there is a popup page.
 - Add the URL in the popup page where you want to guard the OpenSumi IDE shortcuts.
-- Go to [the shortcut settings page](chrome://extensions/shortcuts), and then input the browser conflicting shortcuts.
+- Click the keyboard icon in the upper right corner of the popup page to go to [the shortcut settings page](chrome://extensions/shortcuts), and then input the conflicting shortcuts.
 
 ## Guarded shortcuts
 
