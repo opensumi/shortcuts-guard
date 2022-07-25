@@ -215,7 +215,7 @@ const Popup = () => {
         style={{
           fontSize: '16px',
           height: '160px',
-          width: 'calc(100vw - 10px)',
+          width: 'calc(100vw - 15px)',
           willChange: 'initial',
           transform: 'none',
         }}
