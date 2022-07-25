@@ -4,13 +4,13 @@
 
 [English](./README.md) | 简体中文
 
-一款用于守护在浏览器端的 OpenSumi IDE 快捷键的谷歌插件。
+OpenSumi IDE 快捷键存在和谷歌浏览器快捷键冲突的情况，这些情况让 OpenSumi IDE 对应行为无法生效。Shortcuts Guard 解决常用的快捷键冲突。
 
 ## 使用说明
 
 - 点击插件图标，然后会出现一个 popup 页面。
 - 在 popup 页面中输入 URL ，插件会在你输入的 URL 上守护 OpenSumi IDE 快捷键。
-- 前往[快捷键设置页面](chrome://extensions/shortcuts)，然后输入与浏览器冲突的快捷键。
+- 点击 popup 页面右上角键盘图标，前往[快捷键设置页面](chrome://extensions/shortcuts)，然后输入冲突的快捷键。
 
 ## 守护的快捷键
 

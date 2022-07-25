@@ -12,7 +12,7 @@
     "description": ""
   },
   "appDesc": {
-    "message": "守护在浏览器端的 OpenSumi IDE 快捷键。",
+    "message": "解决 OpenSumi IDE 和 Chrome 浏览器常用快捷键冲突。",
     "description": ""
   },
   "cancel": {

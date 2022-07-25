@@ -1,7 +1,7 @@
 {
   "name": "shortcuts-guard",
   "version": "0.0.1",
-  "description": "Guard the OpenSumi IDE shortcuts in the browsers.",
+  "description": "Solve the most commonly used shortcuts conflict caused by OpenSumi IDE and the Chrome browser.",
   "scripts": {
     "build": "yarn lint && webpack --config webpack/webpack.prod.js",
     "lint": "eslint src/**/*{.js,jsx,ts,tsx}",
