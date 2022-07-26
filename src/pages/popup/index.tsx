@@ -44,7 +44,7 @@ const Popup = () => {
       } else {
         const newUrl = trimedAddingNewUrl;
         message.success(chrome.i18n.getMessage('successfullyAdd'), 3);
-
+        setAddingUrl('');
         updateUrlsInChromeStorage([newUrl, ...urls]);
         setUrls([newUrl, ...urls]);
       }
@@ -102,13 +102,13 @@ const Popup = () => {
 
     const handleEditUrl = (index: number) => {
       if (editingUrl) {
-        const trimedAddingNewUrl = editingUrl.trim();
+        const trimedEditingNewUrl = editingUrl.trim();
         if (
-          urls.some((url, idx) => url === trimedAddingNewUrl && idx !== index)
+          urls.some((url, idx) => url === trimedEditingNewUrl && idx !== index)
         ) {
           message.error(chrome.i18n.getMessage('updateFailExist'), 3);
         } else {
-          const newUrl = trimedAddingNewUrl;
+          const newUrl = trimedEditingNewUrl;
           message.success(chrome.i18n.getMessage('successfullyUpdate'), 3);
           const newUrls = urls
             .slice(0, index)
@@ -200,6 +200,7 @@ const Popup = () => {
         <Input
           className={styles.input}
           placeholder={chrome.i18n.getMessage('supportRegular')}
+          value={addingUrl}
           onValueChange={handleChangeAddInput}
           onPressEnter={handlePressAddUrlEnter}
         />
