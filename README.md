@@ -9,8 +9,32 @@ The shortcuts of the OpenSumi IDE conflict with those of the Chrome, which makes
 ## Usage
 
 - Click the Chrome Extension icon, and then there is a popup page.
-- Add the URL in the popup page where you want to guard the OpenSumi IDE shortcuts.
+- Add the URL which can be a match pattern in the popup page where the extension will guard the OpenSumi IDE shortcuts.
 - Click the keyboard icon in the upper right corner of the popup page to go to [the shortcut settings page](chrome://extensions/shortcuts), and then input the conflicting shortcuts.
+
+## Match patterns
+
+### Basic Syntax
+
+```text
+<url-pattern> := <scheme>://<host><path>
+<scheme> := '*' | 'http' | 'https'
+<host> := '*' | '*.' <any char except '/' and '*'>+
+<path> := '/' <any chars>
+```
+
+### Examples
+
+| Pattern                            | What it does                                                 | Examples of matching URLs                                    |
+| ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `https://*/*`                      | Matches any URL that uses the `https` scheme                 | https://www.google.com/<br/>https://example.org/foo/bar.html |
+| `https://*/foo*`                   | Matches any URL that uses the `https` scheme, on any host, as long as the path starts with `/foo` | https://example.com/foo/bar.html<br/>https://www.google.com/foo |
+| `https://*.google.com/foo*bar`     | Matches any URL that uses the `https` scheme, is on a google.com host (such as www.google.com, docs.google.com, or google.com), as long as the path starts with `/foo` and ends with `bar` | https://www.google.com/foo/baz/bar<br/>https://docs.google.com/foobar |
+| `https://example.org/foo/bar.html` | Matches the specified URL                                    | https://example.org/foo/bar.html                             |
+| `http://127.0.0.1/*`               | Matches any URL that uses the `http` scheme and is on the host 127.0.0.1 | http://127.0.0.1/<br/>http://127.0.0.1/foo/bar.html          |
+| `*://mail.google.com/*`            | Matches any URL that starts with `http://mail.google.com` or `https://mail.google.com` | http://mail.google.com/foo/baz/bar<br/>https://mail.google.com/foobar |
+
+> Reference [Match patterns - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/match_patterns/)
 
 ## Guarded shortcuts
 

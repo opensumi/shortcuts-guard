@@ -1,4 +1,5 @@
 import * as BrowserCommands from './browser-commands';
+import { matchUrl } from './match-url';
 
 let urls: string[] = [];
 let os: string;
@@ -61,18 +62,9 @@ function reissueKeyDownEvent({
   });
 }
 
-function isRegExp(url: string | RegExp): url is RegExp {
-  try {
-    RegExp(url);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
 function isUrlHit(targetUrl: string) {
   for (const url of urls) {
-    if (targetUrl === url || (isRegExp(url) && RegExp(url).test(targetUrl))) {
+    if (matchUrl(targetUrl, url)) {
       return true;
     }
   }

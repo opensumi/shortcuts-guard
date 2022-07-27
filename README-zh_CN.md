@@ -9,8 +9,32 @@ OpenSumi IDE 快捷键存在和谷歌浏览器快捷键冲突的情况，这些�
 ## 使用说明
 
 - 点击插件图标，然后会出现一个 popup 页面。
-- 在 popup 页面中输入 URL ，插件会在你输入的 URL 上守护 OpenSumi IDE 快捷键。
+- 在 popup 页面中输入可为匹配模式的 URL，插件会在你输入的 URL 上守护 OpenSumi IDE 快捷键。
 - 点击 popup 页面右上角键盘图标，前往[快捷键设置页面](chrome://extensions/shortcuts)，然后输入冲突的快捷键。
+
+## 匹配模式
+
+### 基本语法
+
+```text
+<url-pattern> := <scheme>://<host><path>
+<scheme> := '*' | 'http' | 'https'
+<host> := '*' | '*.' <any char except '/' and '*'>+
+<path> := '/' <any chars>
+```
+
+### 例子
+
+| 模式                               | 它有什么效果                                                 | 匹配的 URLs 例子                                             |
+| ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `https://*/*`                      | 匹配任何使用 `https` scheme 的 URL                           | https://www.google.com/<br/>https://example.org/foo/bar.html |
+| `https://*/foo*`                   | 匹配任何使用 `https` scheme 且 path 以`/foo`开头的 URL       | https://example.com/foo/bar.html<br/>https://www.google.com/foo |
+| `https://*.google.com/foo*bar`     | 匹配任何使用 `https` scheme、基于 google.com 的 host（例如 www.google.com、docs.google.com 或 google.com）且 path 以 `/foo` 开头并以 `bar` 结尾的 URL | https://www.google.com/foo/baz/bar<br/>https://docs.google.com/foobar |
+| `https://example.org/foo/bar.html` | 匹配指定的 URL                                               | https://example.org/foo/bar.html                             |
+| `http://127.0.0.1/*`               | 匹配任何使用 `http` scheme 且 host 为 127.0.0.1 的 URL       | http://127.0.0.1/<br/>http://127.0.0.1/foo/bar.html          |
+| `*://mail.google.com/*`            | 匹配任何以 `http://mail.google.com` 或 `https://mail.google.com` 开头的 URL | http://mail.google.com/foo/baz/bar<br/>https://mail.google.com/foobar |
+
+> 参考 [Match patterns - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/match_patterns/)
 
 ## 守护的快捷键
 

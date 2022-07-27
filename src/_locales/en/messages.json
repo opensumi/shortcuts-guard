@@ -23,6 +23,10 @@
     "message": "Delete",
     "description": ""
   },
+  "getCurrentUrl": {
+    "message": "Write the current URL",
+    "description": ""
+  },
   "goShortcut": {
     "message": "Go to the shortcut settings page",
     "description": ""
@@ -43,8 +47,8 @@
     "message": "Successfully updated",
     "description": ""
   },
-  "supportRegular": {
-    "message": "Support regular expressions to add a URL",
+  "supportMatchPatterns": {
+    "message": "Support using a match pattern to add a URL",
     "description": ""
   },
   "updateFailEmpty": {
