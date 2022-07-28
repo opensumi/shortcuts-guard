@@ -5,9 +5,9 @@ import { Button } from '@opensumi/ide-components/lib/button';
 import { Input } from '@opensumi/ide-components/lib/input';
 import { message } from '@opensumi/ide-components/lib/message';
 import { RecycleList } from '@opensumi/ide-components/lib/recycle-list';
+import { Tooltip } from '@opensumi/ide-components/lib/tooltip';
 
 import styles from './popup.module.less';
-import { Tooltip } from '@opensumi/ide-components/lib/tooltip';
 
 const Popup = () => {
   const [urls, setUrls] = React.useState<string[]>([]);
@@ -37,8 +37,8 @@ const Popup = () => {
   };
 
   const handleAddUrl = () => {
-    if (addingUrl) {
-      const trimedAddingNewUrl = addingUrl.trim();
+    const trimedAddingNewUrl = addingUrl.trim();
+    if (trimedAddingNewUrl) {
       if (urls.some((url) => url === trimedAddingNewUrl)) {
         message.error(chrome.i18n.getMessage('addFailExist'), 3);
       } else {
@@ -101,8 +101,8 @@ const Popup = () => {
     };
 
     const handleEditUrl = (index: number) => {
-      if (editingUrl) {
-        const trimedEditingNewUrl = editingUrl.trim();
+      const trimedEditingNewUrl = editingUrl.trim();
+      if (trimedEditingNewUrl) {
         if (
           urls.some((url, idx) => url === trimedEditingNewUrl && idx !== index)
         ) {
@@ -199,7 +199,7 @@ const Popup = () => {
       <div className={styles['add-url-section']}>
         <Input
           className={styles.input}
-          placeholder={chrome.i18n.getMessage('supportRegular')}
+          placeholder={chrome.i18n.getMessage('supportMatchPatterns')}
           value={addingUrl}
           onValueChange={handleChangeAddInput}
           onPressEnter={handlePressAddUrlEnter}

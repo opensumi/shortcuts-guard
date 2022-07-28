@@ -4,11 +4,11 @@
     "description": ""
   },
   "addFailEmpty": {
-    "message": "在添加前请先输入URL",
+    "message": "在添加前请先输入 URL",
     "description": ""
   },
   "addFailExist": {
-    "message": "URL已经存在",
+    "message": "URL 已经存在",
     "description": ""
   },
   "appDesc": {
@@ -21,6 +21,10 @@
   },
   "delete": {
     "message": "删除",
+    "description": ""
+  },
+  "getCurrentUrl": {
+    "message": "写入当前 URL",
     "description": ""
   },
   "goShortcut": {
@@ -43,16 +47,16 @@
     "message": "更新成功",
     "description": ""
   },
-  "supportRegular": {
-    "message": "支持正则表达式添加URL",
+  "supportMatchPatterns": {
+    "message": "支持使用匹配模式添加 URL",
     "description": ""
   },
   "updateFailEmpty": {
-    "message": "URL不能为空",
+    "message": "URL 不能为空",
     "description": ""
   },
   "updateFailExist": {
-    "message": "URL已经存在",
+    "message": "URL 已经存在",
     "description": ""
   }
 }
