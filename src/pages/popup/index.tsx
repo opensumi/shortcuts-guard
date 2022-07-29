@@ -13,6 +13,15 @@ const Popup = () => {
   const [urls, setUrls] = React.useState<string[]>([]);
   const [addingUrl, setAddingUrl] = React.useState('');
 
+  const convertUrl = (url: string) => {
+    const urlResults = /^(\*|https?):\/\/(\*|(?:\*\.)?[^/*]+)(\/.*)$/.exec(url);
+    if (urlResults) {
+      const host = urlResults[2];
+      return '*://' + host + '/*';
+    }
+    return '';
+  }
+
   const handleChangeAddInput = (value: string) => {
     setAddingUrl(value);
   };
@@ -24,7 +33,14 @@ const Popup = () => {
     updateUrlsInChromeStorage(newUrls);
   };
 
-  const handleClickGoToRepo = () => {
+  const handleClickGetCurrentUrlButton = async () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      const tab = tabs[0];
+      tab.url && setAddingUrl(convertUrl(tab.url));
+    });
+  };
+
+  const handleClickGoToRepoButton = () => {
     chrome.tabs.create({ url: 'https://github.com/opensumi/shortcuts-guard' });
   };
 
@@ -65,6 +81,16 @@ const Popup = () => {
       }
     })();
   }, []);
+
+  const GetCurrentUrlButton = (
+    <Tooltip title={chrome.i18n.getMessage('getCurrentUrl')} delay={600}>
+      <Button
+        type="icon"
+        icon='edit'
+        onClick={handleClickGetCurrentUrlButton}
+      />
+    </Tooltip>
+  )
 
   const ListItemTemplate = ({
     data,
@@ -121,7 +147,7 @@ const Popup = () => {
       }
     };
 
-    const deleteButton = (
+    const DeleteUrlButton = (
       <Tooltip title={chrome.i18n.getMessage('delete')} delay={600}>
         <Button
           type="icon"
@@ -132,7 +158,7 @@ const Popup = () => {
       </Tooltip>
     );
 
-    const cancelButton = (
+    const CancelButton = (
       <Tooltip title={chrome.i18n.getMessage('cancel')} delay={600}>
         <Button
           type="icon"
@@ -143,7 +169,7 @@ const Popup = () => {
       </Tooltip>
     );
 
-    const okButton = (
+    const OkButton = (
       <Tooltip title={chrome.i18n.getMessage('ok')} delay={600}>
         <Button
           type="icon"
@@ -159,7 +185,7 @@ const Popup = () => {
         <Input
           value={editingUrl}
           addonAfter={
-            editingUrl === data ? deleteButton : [cancelButton, okButton]
+            editingUrl === data ? DeleteUrlButton : [CancelButton, OkButton]
           }
           onBlur={handleBlurEditInput}
           onValueChange={handleChangeEditInput}
@@ -175,12 +201,12 @@ const Popup = () => {
           <img
             src="../images/logo.svg"
             className={styles.logo}
-            onClick={handleClickGoToRepo}
+            onClick={handleClickGoToRepoButton}
           />
           <div className={styles['vertical-divider']} />
           <span
             className={styles['sumi-name']}
-            onClick={handleClickGoToRepo}
+            onClick={handleClickGoToRepoButton}
           >
             OpenSumi Guard
           </span>
@@ -203,6 +229,7 @@ const Popup = () => {
           value={addingUrl}
           onValueChange={handleChangeAddInput}
           onPressEnter={handlePressAddUrlEnter}
+          addonAfter={addingUrl === '' ? GetCurrentUrlButton : null}
         />
         <Button type="primary" size="large" onClick={handleAddUrl}>
           {chrome.i18n.getMessage('add')}
