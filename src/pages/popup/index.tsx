@@ -208,7 +208,7 @@ const Popup = () => {
             className={styles['sumi-name']}
             onClick={handleClickGoToRepoButton}
           >
-            OpenSumi Guard
+            Shortcuts Guard
           </span>
         </div>
         <Tooltip title={chrome.i18n.getMessage('goShortcut')} delay={600}>
