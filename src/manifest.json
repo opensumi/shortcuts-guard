@@ -18,19 +18,34 @@
   },
   "commands": {
     "closeCurrentTab": {
-      "description": "Ctrl / Command + W"
+      "description": "Ctrl / Command + W",
+      "suggested_key": {
+        "default": "Ctrl+W"
+      }
     },
     "closeCurrentWindow": {
-      "description": "Ctrl / Command + Shift + W"
+      "description": "Ctrl / Command + Shift + W",
+      "suggested_key": {
+        "default": "Ctrl+Shift+W"
+      }
     },
     "openNewTab": {
-      "description": "Ctrl / Command + T"
+      "description": "Ctrl / Command + T",
+      "suggested_key": {
+        "default": "Ctrl+T"
+      }
     },
     "openNewWindow": {
-      "description": "Ctrl / Command + N"
+      "description": "Ctrl / Command + N",
+      "suggested_key": {
+        "default": "Ctrl+N"
+      }
     },
     "reopenPreviouslyClosedTab": {
-      "description": "Ctrl / Command + Shift + T"
+      "description": "Ctrl / Command + Shift + T",
+      "suggested_key": {
+        "default": "Ctrl+Shift+T"
+      }
     }
   },
   "permissions": [
