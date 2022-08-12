@@ -6,12 +6,12 @@ on:
     paths:
       - 'src/**'
     tags:
-      - "v*.*.*"
+      - 'v*.*.*'
   pull_request:
     paths:
       - 'src/**'
     tags:
-      - "v*.*.*"
+      - 'v*.*.*'
 
 jobs:
   coverage:
@@ -22,29 +22,38 @@ jobs:
         node-version: [14.x]
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Install Dependencies
-      run: |
-        yarn install
+      - name: Install Dependencies
+        run: |
+          yarn install
 
-    - name: Build
-      run: |
-        yarn build
-  
-    - name: Zip
-      uses: vimtor/action-zip@v1
-      with:
-        files: dist/
-        dest: shortcuts-guard.zip
+      - name: Build
+        run: |
+          yarn build
 
-    - name: Release
-      uses: softprops/action-gh-release@v1
-      with:
-        files: |
-          shortcuts-guard.zip
+      - name: Zip
+        uses: vimtor/action-zip@v1
+        with:
+          files: dist/
+          dest: shortcuts-guard.zip
+
+      - name: Create Changelog
+        id: create_changelog
+        uses: mikepenz/release-changelog-builder-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          configuration: '.github/changelog-configuration.json'
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: ${{ steps.create_changelog.outputs.changelog }}
+          files: |
+            shortcuts-guard.zip
