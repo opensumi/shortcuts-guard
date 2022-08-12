@@ -13,7 +13,9 @@ function removeFirstSegment(segments: string): string {
 */
 function matchPattern(url: string, pattern: string): boolean {
   url = url.trim();
-  const patternResults = /^(\*|https?):\/\/(\*|(?:\*\.)?[^/*]+)(\/.*)$/.exec(pattern);
+  const patternResults = /^(\*|https?):\/\/(\*|(?:\*\.)?[^/*]+)(\/.*)$/.exec(
+    pattern,
+  );
   const urlResults = /^(\*|https?):\/\/(\*|(?:\*\.)?[^/*]+)(\/.*)$/.exec(url);
   if (!(patternResults && urlResults)) {
     return false;
@@ -23,16 +25,22 @@ function matchPattern(url: string, pattern: string): boolean {
   if (patternScheme !== '*' && scheme !== patternScheme) {
     return false;
   }
-  if (!patternHost.startsWith('*.') && patternHost !== '*' && host !== patternHost) {
+  if (
+    !patternHost.startsWith('*.') &&
+    patternHost !== '*' &&
+    host !== patternHost
+  ) {
     return false;
   }
   // https://*.google.com matches www.google.com and google.com
-  if (patternHost.startsWith('*.') && removeFirstSegment(host) !== patternHost.slice(2) && host !== patternHost.slice(2)) {
+  if (
+    patternHost.startsWith('*.') &&
+    removeFirstSegment(host) !== patternHost.slice(2) &&
+    host !== patternHost.slice(2)
+  ) {
     return false;
   }
-  const regExp = new RegExp(
-    `^${patternPath.replace(/[*]/g, '[^]*')}$`,
-  );
+  const regExp = new RegExp(`^${patternPath.replace(/[*]/g, '[^]*')}$`);
   if (!regExp.test(path)) {
     return false;
   }

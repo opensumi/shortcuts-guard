@@ -20,7 +20,7 @@ const Popup = () => {
       return '*://' + host + '/*';
     }
     return '';
-  }
+  };
 
   const handleChangeAddInput = (value: string) => {
     setAddingUrl(value);
@@ -86,11 +86,11 @@ const Popup = () => {
     <Tooltip title={chrome.i18n.getMessage('getCurrentUrl')} delay={600}>
       <Button
         type="icon"
-        icon='edit'
+        icon="edit"
         onClick={handleClickGetCurrentUrlButton}
       />
     </Tooltip>
-  )
+  );
 
   const ListItemTemplate = ({
     data,
