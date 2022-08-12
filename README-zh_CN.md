@@ -25,14 +25,14 @@ OpenSumi IDE 快捷键存在和谷歌浏览器快捷键冲突的情况，这些�
 
 ### 例子
 
-| 模式                               | 它有什么效果                                                 | 匹配的 URLs 例子                                             |
-| ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `https://*/*`                      | 匹配任何使用 `https` scheme 的 URL                           | https://www.google.com/<br/>https://example.org/foo/bar.html |
-| `https://*/foo*`                   | 匹配任何使用 `https` scheme 且 path 以`/foo`开头的 URL       | https://example.com/foo/bar.html<br/>https://www.google.com/foo |
+| 模式                               | 它有什么效果                                                                                                                                          | 匹配的 URLs 例子                                                      |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `https://*/*`                      | 匹配任何使用 `https` scheme 的 URL                                                                                                                    | https://www.google.com/<br/>https://example.org/foo/bar.html          |
+| `https://*/foo*`                   | 匹配任何使用 `https` scheme 且 path 以`/foo`开头的 URL                                                                                                | https://example.com/foo/bar.html<br/>https://www.google.com/foo       |
 | `https://*.google.com/foo*bar`     | 匹配任何使用 `https` scheme、基于 google.com 的 host（例如 www.google.com、docs.google.com 或 google.com）且 path 以 `/foo` 开头并以 `bar` 结尾的 URL | https://www.google.com/foo/baz/bar<br/>https://docs.google.com/foobar |
-| `https://example.org/foo/bar.html` | 匹配指定的 URL                                               | https://example.org/foo/bar.html                             |
-| `http://127.0.0.1/*`               | 匹配任何使用 `http` scheme 且 host 为 127.0.0.1 的 URL       | http://127.0.0.1/<br/>http://127.0.0.1/foo/bar.html          |
-| `*://mail.google.com/*`            | 匹配任何以 `http://mail.google.com` 或 `https://mail.google.com` 开头的 URL | http://mail.google.com/foo/baz/bar<br/>https://mail.google.com/foobar |
+| `https://example.org/foo/bar.html` | 匹配指定的 URL                                                                                                                                        | https://example.org/foo/bar.html                                      |
+| `http://127.0.0.1/*`               | 匹配任何使用 `http` scheme 且 host 为 127.0.0.1 的 URL                                                                                                | http://127.0.0.1/<br/>http://127.0.0.1/foo/bar.html                   |
+| `*://mail.google.com/*`            | 匹配任何以 `http://mail.google.com` 或 `https://mail.google.com` 开头的 URL                                                                           | http://mail.google.com/foo/baz/bar<br/>https://mail.google.com/foobar |
 
 > 参考 [Match patterns - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/match_patterns/)
 
@@ -47,4 +47,3 @@ OpenSumi IDE 快捷键存在和谷歌浏览器快捷键冲突的情况，这些�
 | Ctrl + Shift + w   | ⌘ + Shift + w  | 关闭当前标签页          | 关闭当前窗口                               |
 
 > 参考 [Chrome 快捷键 ](https://support.google.com/chrome/answer/157179?co=GENIE.Platform%3DDesktop&hl=zh-Hans#zippy=%2C%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%92%8C%E7%AA%97%E5%8F%A3%E5%BF%AB%E6%8D%B7%E9%94%AE)和 [VS Code 快捷键](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
-

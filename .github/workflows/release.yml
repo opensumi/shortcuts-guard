@@ -3,13 +3,9 @@ name: Release
 on:
   workflow_dispatch:
   push:
-    paths:
-      - 'src/**'
     tags:
       - 'v*.*.*'
   pull_request:
-    paths:
-      - 'src/**'
     tags:
       - 'v*.*.*'
 

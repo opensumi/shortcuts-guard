@@ -33,13 +33,6 @@
       "description": "Ctrl / Command + Shift + T"
     }
   },
-  "permissions": [
-    "scripting",
-    "sessions",
-    "storage",
-    "tabs"
-  ],
-  "host_permissions": [
-    "<all_urls>"
-  ]
+  "permissions": ["scripting", "sessions", "storage", "tabs"],
+  "host_permissions": ["<all_urls>"]
 }
