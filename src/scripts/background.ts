@@ -2,18 +2,20 @@ import * as BrowserCommands from './browser-commands';
 import { matchUrl } from './match-url';
 
 let urls: string[] = [];
+let shouldInitialize = true;
 let os: string;
 
 chrome.runtime.getPlatformInfo((platformInfo) => {
   os = platformInfo.os;
 });
 
-(async () => {
+async function initializeUrls() {
   const item = await chrome.storage.sync.get('urls');
   if (item.urls) {
     urls = item.urls;
   }
-})();
+  shouldInitialize = false;
+}
 
 chrome.storage.onChanged.addListener(async (changes) => {
   // 监听到 urls 的变化
@@ -77,6 +79,8 @@ chrome.commands.onCommand.addListener(async (command, tab) => {
   if (!tabId || !tabUrl) {
     return;
   }
+
+  shouldInitialize && (await initializeUrls());
 
   // 补发 ide 的快捷键不用区分大小写
   switch (command) {
