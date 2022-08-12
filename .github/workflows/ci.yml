@@ -5,13 +5,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'src/**'
   pull_request:
     branches:
       - main
-    paths:
-      - 'src/**'
 
 jobs:
   coverage:
@@ -22,17 +18,21 @@ jobs:
         node-version: [14.x]
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Install Dependencies
-      run: |
-        yarn install
-    
-    - name: Lint
-      run: |
-        yarn lint
+      - name: Install Dependencies
+        run: |
+          yarn install
+
+      - name: Check Code Style
+        run: |
+          yarn style:check
+
+      - name: Lint
+        run: |
+          yarn lint
