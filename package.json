@@ -1,6 +1,6 @@
 {
   "name": "shortcuts-guard",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Solve the most commonly used shortcuts conflict caused by OpenSumi IDE and the Chrome browser.",
   "scripts": {
     "build": "yarn lint && webpack --config webpack/webpack.prod.js",

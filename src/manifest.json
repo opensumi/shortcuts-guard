@@ -1,7 +1,7 @@
 {
   "name": "Shortcuts Guard",
   "description": "__MSG_appDesc__",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "manifest_version": 3,
   "default_locale": "en",
   "action": {
