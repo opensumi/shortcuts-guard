@@ -2,12 +2,10 @@ name: Release
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - 'v*.*.*'
-  pull_request:
-    tags:
-      - 'v*.*.*'
+    inputs:
+      version:
+        description: 'The version such as 0.0.1 to release.'
+        required: true
 
 jobs:
   coverage:
@@ -19,6 +17,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -39,6 +39,23 @@ jobs:
           files: dist/
           dest: shortcuts-guard.zip
 
+      - name: Check Input Tag
+        uses: mukunku/tag-exists-action@v1.0.0
+        id: checkTag
+        env:
+          TAG: v${{github.event.inputs.version}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Git Tag
+        if: steps.checkTag.outputs.exists == 'false'
+        uses: pkgdeps/git-tag-action@v2
+        with:
+          version: ${{ github.event.inputs.version }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_repo: ${{ github.repository }}
+          git_commit_sha: ${{ github.sha }}
+          git_tag_prefix: 'v'
+
       - name: Create Changelog
         id: create_changelog
         uses: mikepenz/release-changelog-builder-action@v3
@@ -53,3 +70,4 @@ jobs:
           body: ${{ steps.create_changelog.outputs.changelog }}
           files: |
             shortcuts-guard.zip
+          tag_name: v${{github.event.inputs.version}}
