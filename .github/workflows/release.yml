@@ -53,3 +53,12 @@ jobs:
           body: ${{ steps.create_changelog.outputs.changelog }}
           files: |
             shortcuts-guard.zip
+
+      - name: Release To Chrome Web Store
+        uses: mnao305/chrome-extension-upload@3.0.0
+        with:
+          file-path: shortcuts-guard.zip
+          extension-id: ${{ secrets.EXTENSION_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          refresh-token: ${{ secrets.REFRESH_TOKEN }}
