@@ -2,12 +2,10 @@ name: Release
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - 'v*.*.*'
-  pull_request:
-    tags:
-      - 'v*.*.*'
+    inputs:
+      version:
+        description: 'The version such as 0.0.1 to release.'
+        required: true
 
 jobs:
   coverage:
@@ -39,7 +37,25 @@ jobs:
           files: dist/
           dest: shortcuts-guard.zip
 
+      - name: Check Input Tag
+        uses: mukunku/tag-exists-action@v1.0.0
+        id: checkTag
+        env:
+          TAG: v${{github.event.inputs.version}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Git Tag
+        if: steps.checkTag.outputs.exists == 'false'
+        uses: pkgdeps/git-tag-action@v2
+        with:
+          version: ${{ github.event.inputs.version }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_repo: ${{ github.repository }}
+          git_commit_sha: ${{ github.sha }}
+          git_tag_prefix: 'v'
+
       - name: Create Changelog
+        if: steps.checkTag.outputs.exists == 'false'
         id: create_changelog
         uses: mikepenz/release-changelog-builder-action@v3
         env:
@@ -48,6 +64,7 @@ jobs:
           configuration: '.github/changelog-configuration.json'
 
       - name: Release
+        if: steps.checkTag.outputs.exists == 'false'
         uses: softprops/action-gh-release@v1
         with:
           body: ${{ steps.create_changelog.outputs.changelog }}
@@ -63,3 +80,4 @@ jobs:
           client-id: ${{ secrets.CLIENT_ID }}
           client-secret: ${{ secrets.CLIENT_SECRET }}
           refresh-token: ${{ secrets.REFRESH_TOKEN }}
+          tag_name: v${{github.event.inputs.version}}
