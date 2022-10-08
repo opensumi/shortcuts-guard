@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'The version such as 0.0.1 to release.'
+        description: '1.Update the version information in package.json and manifest.json 2.Input a new version such as 0.0.1 below to release'
         required: true
 
 jobs:
