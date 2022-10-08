@@ -70,6 +70,7 @@ jobs:
           body: ${{ steps.create_changelog.outputs.changelog }}
           files: |
             shortcuts-guard.zip
+          tag_name: v${{github.event.inputs.version}}
 
       - name: Release To Chrome Web Store
         if: steps.checkTag.outputs.exists == 'false'
@@ -80,4 +81,3 @@ jobs:
           client-id: ${{ secrets.CHROME_CLIENT_ID }}
           client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
           refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
-          tag_name: v${{github.event.inputs.version}}
