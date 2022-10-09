@@ -44,6 +44,10 @@ jobs:
           TAG: v${{github.event.inputs.version}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Check Version
+        run: |
+          yarn check-version -- -v=${{github.event.inputs.version}}
+
       - name: Create Git Tag
         if: steps.checkTag.outputs.exists == 'false'
         uses: pkgdeps/git-tag-action@v2

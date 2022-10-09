@@ -6,9 +6,9 @@
     "target": "es6",
     "sourceMap": false,
     "jsx": "react",
-    "rootDir": "src",
     "outDir": "dist",
     "baseUrl": "src",
     "paths": {}
-  }
+  },
+  "include": ["./src", "./scripts"]
 }
