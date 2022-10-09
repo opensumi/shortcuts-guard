@@ -1,6 +1,6 @@
 {
   "name": "shortcuts-guard",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Solve the most commonly used shortcuts conflict caused by OpenSumi IDE and the Chrome browser.",
   "scripts": {
     "check-version": "ts-node ./scripts/check-version",
