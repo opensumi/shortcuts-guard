@@ -47,3 +47,7 @@ The shortcuts of the OpenSumi IDE conflict with those of the Chrome, which makes
 | Ctrl + Shift + w     | ⌘ + Shift + w    | Close the current tab   | Close the current window                                    |
 
 > Reference [Chrome keyboard shortcuts](https://support.google.com/chrome/answer/157179?hl=en&co=GENIE.Platform%3DDesktop) and [VS Code keyboard shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
+
+## Publish
+
+Please refer to this [document](./HOW_TO_PUBLISH.md) for the publishing process.
