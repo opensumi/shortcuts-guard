@@ -47,3 +47,7 @@ OpenSumi IDE 快捷键存在和谷歌浏览器快捷键冲突的情况，这些�
 | Ctrl + Shift + w   | ⌘ + Shift + w  | 关闭当前标签页          | 关闭当前窗口                               |
 
 > 参考 [Chrome 快捷键 ](https://support.google.com/chrome/answer/157179?co=GENIE.Platform%3DDesktop&hl=zh-Hans#zippy=%2C%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%92%8C%E7%AA%97%E5%8F%A3%E5%BF%AB%E6%8D%B7%E9%94%AE)和 [VS Code 快捷键](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
+
+## 发布流程
+
+发布流程请参考此[文档](./HOW_TO_PUBLISH.md)。
