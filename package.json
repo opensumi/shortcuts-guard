@@ -5,8 +5,8 @@
   "scripts": {
     "check-version": "ts-node ./scripts/check-version",
     "build": "yarn lint && webpack --config webpack/webpack.prod.js",
-    "lint": "eslint src/**/*{.js,jsx,ts,tsx}",
-    "lint:fix": "eslint src/**/*{.js,jsx,ts,tsx} --fix",
+    "lint": "eslint 'src/**/*{.js,jsx,ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*{.js,jsx,ts,tsx}' --fix",
     "prepare": "husky install",
     "style": "prettier --write .",
     "style:check": "prettier --check .",
