@@ -86,7 +86,7 @@ const Popup = () => {
     <Tooltip title={chrome.i18n.getMessage('getCurrentUrl')} delay={600}>
       <Button
         type="icon"
-        icon="edit"
+        icon="sync"
         onClick={handleClickGetCurrentUrlButton}
       />
     </Tooltip>
